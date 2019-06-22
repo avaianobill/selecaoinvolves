@@ -16,6 +16,14 @@ Criado também controlador e serviço de vinculação entre funcionários e loja
 
 Além do uso de DTOs para transferência de dados da camada de controladores para os serviços.
 
+# Execução da aplicação backend
+
+Para executar o backend, basta seguir os passos:
+
+1 - No diretório raiz da aplicação, executar o comando 'mvn clean package'. Esse comando irá gerar o pacote 'desafio-localizacao-1.0.0.jar' na pasta target do projeto.
+
+2 - Para executar o pacote jar, pasta executar o comando 'java -jar desafio-localizacao-1.0.0.jar'.
+
 
 
 
