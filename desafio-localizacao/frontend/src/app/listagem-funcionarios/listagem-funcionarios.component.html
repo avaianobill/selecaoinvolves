@@ -1,6 +1,6 @@
 <div *ngIf="funcionarios === undefined">
 
-  <a>Sem funcionario para apresentação.</a>
+  <a>Sem funcionário para apresentação.</a>
 
 </div>
 <br/>
@@ -35,7 +35,7 @@
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
     <button class="btn btn-primary"
       routerLink="/cadastro-funcionarios/novo">
-      <h5><i class="material-icons">Adicionar novo funcionario</i></h5>
+      <h5><i class="material-icons">Adicionar novo funcionário</i></h5>
   </button>
   </div>
 </div>
@@ -45,6 +45,6 @@
     <app-maps [funcionarioSelecionado]="funcionarioSelecionado"></app-maps>
   </div>
   <div *ngIf="funcionarioSelecionado.lojas.length == 0">
-      <a>Sem lojas para apresentação.</a>
+      <a>Sem lojas vinculadas a funcionarios para apresentação.</a>
   </div>
 </div>
