@@ -12,8 +12,3 @@ Desa forma o serviço está disponível em `http://localhost:4200/`.
 
 Para gerar o build do projeto execute o comando `ng build`. O artefatos gerados são armazenados no diretório `dist/`. 
 
-### Docker
-
-Neste projeto, também está disponível um arquivo Dockerfile para criação de uma imagem para execução.
-A imagem utiliza como como base: alpine linux e servidor nginx.
-
