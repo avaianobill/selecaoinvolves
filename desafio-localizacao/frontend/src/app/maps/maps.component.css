@@ -1,0 +1,14 @@
+agm-map {
+    height: 500px;
+    width: 1000px
+}
+
+.loja {
+    background-color: lightblue;
+    color: lightblue;
+}
+
+.funcionario {
+    background-color: teal;
+    color: teal;
+}

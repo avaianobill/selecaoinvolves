@@ -1,0 +1,50 @@
+<div *ngIf="funcionarios === undefined">
+
+  <a>Sem funcionario para apresentação.</a>
+
+</div>
+<br/>
+<button class="btn btn-primary" (click)="open()">Clique sobre os registros para visualizar os dados.</button>
+
+<div *ngIf="funcionarios !== undefined">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headers" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let funcionario of funcionarios" (click)="RowSelected(funcionario);"> 
+        <th scope="row">{{funcionario.name}}</th>
+        <td>{{funcionario.latitude}}</td>
+        <td>{{funcionario.longitude}}</td>
+        <td>
+          <a [routerLink]="['/cadastro-funcionarios/', funcionario.id]">
+            <i class="material-icons">editar</i>
+          </a>
+        </td>
+        <td>
+          <a (click)="delete(funcionario)" [routerLink]="['/']">
+            <i class="material-icons">remover</i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <button class="btn btn-primary"
+      routerLink="/cadastro-funcionarios/novo">
+      <h5><i class="material-icons">Adicionar novo funcionario</i></h5>
+  </button>
+  </div>
+</div>
+
+<div *ngIf="funcionarioSelecionado !== undefined">
+  <div *ngIf="funcionarioSelecionado.lojas.length > 0">
+    <app-maps [funcionarioSelecionado]="funcionarioSelecionado"></app-maps>
+  </div>
+  <div *ngIf="funcionarioSelecionado.lojas.length == 0">
+      <a>Sem lojas para apresentação.</a>
+  </div>
+</div>

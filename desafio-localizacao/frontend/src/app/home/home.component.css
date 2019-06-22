@@ -1,0 +1,30 @@
+accordion {
+    widows: 1200px;
+}
+
+p {
+    font-family: Lato;
+  }
+  
+  .toolbar,
+  .content {
+    margin: 1em;
+  }
+
+  .cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  /* Column Gap */
+  .cardList > * {
+    box-sizing: border-box;
+  }
+  .cardList > *:not(:last-child) {
+    margin-right: 32px;
+  }
+  /* Item sizing */
+  .cardListItem {
+    flex: 0 1 calc(33.3% - 32px);
+  }

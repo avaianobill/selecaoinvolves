@@ -1,0 +1,31 @@
+<div class="cardListItem">
+    <h4 *ngIf="getId() === undefined" class="page-header" style="max-width: 300px"><strong>Cadastro de Funcionario</strong></h4>
+    <h4 *ngIf="getId() !== undefined" class="page-header" style="max-width: 300px"><strong>Edição de Funcionario</strong></h4>
+    <br/>
+    <form role="form">
+        <div class="form-group float-label-control" style="max-width: 200px"> 
+            <label for="">Nome</label>
+            <input type="text" class="form-control" [formControl]="name" placeholder="name">
+        </div>
+        <div class="form-group float-label-control" style="max-width: 200px"> 
+            <label for="">Latitude</label>
+            <input type="number" class="form-control" [formControl]="latitude" placeholder="latitude">
+        </div>
+        <div class="form-group float-label-control" style="max-width: 200px">
+            <label for="">Longitude</label>
+            <input type="number" class="form-control" [formControl]="longitude" placeholder="longitude">
+        </div>
+    </form>
+
+    <div style="margin-top:10px" class="form-group">
+        <!-- Button -->
+
+        <div class="col-sm-12 controls">
+        
+        <a *ngIf="getId() === undefined" id="btn-login" [routerLink]="['/funcionarios']" class="btn btn-success" (click)="adicionarFuncionario()">Cadastrar</a>
+        <a *ngIf="getId() !== undefined" id="btn-login" [routerLink]="['/funcionarios']" class="btn btn-success" (click)="editarFuncionario()">Editar</a>
+        <a id="btn-fblogin" href="/" class="btn btn-primary">Cancelar</a>
+
+        </div>
+    </div> 
+</div>

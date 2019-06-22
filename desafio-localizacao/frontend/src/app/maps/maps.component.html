@@ -1,0 +1,33 @@
+<p>{{funcionarioSelecionado.name}}</p>
+
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    
+  <agm-marker [latitude]="origem.lat" [longitude]="origem.lng" class="labelOptions">
+
+    <agm-snazzy-info-window backgroundColor="orange" [maxWidth]="150" [closeWhenOthersOpen]="false" [isOpen]="true">
+      <ng-template class="funcionario">
+        <strong>Funcionario:</strong> {{funcionarioSelecionado.name}}
+      </ng-template>
+    </agm-snazzy-info-window>
+  
+  </agm-marker>
+
+  <agm-marker *ngFor="let coordenada of coordenadas" [latitude]="coordenada.origem.lat" [longitude]="coordenada.origem.lng">
+    
+      <agm-snazzy-info-window backgroundColor="yellow" [maxWidth]="150" [closeWhenOthersOpen]="false" [isOpen]="true">
+        <ng-template>
+          <strong>Loja:</strong> {{coordenada.name}}
+        </ng-template>
+      </agm-snazzy-info-window>
+
+  </agm-marker>
+
+
+ </agm-map>
+
+ <br/>
+ <br/>
+ <br/>
+ <br/>
+
+ <!-- [renderOptions]="dir.renderOptions" -->

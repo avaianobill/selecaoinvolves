@@ -1,0 +1,40 @@
+<div *ngIf="lojas.length === 0">
+
+    <a>Sem lojas para apresentação.</a>
+  
+  </div>
+
+<div *ngIf="lojas.length > 0">
+  <table class="table table-dark">
+  <thead>
+    <tr>
+      <th *ngFor="let head of headers" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let loja of lojas">
+      <th scope="row">{{loja.name}}</th>
+      <td>{{loja.latitude}}</td>
+      <td>{{loja.longitude}}</td>
+      <td>
+        <a [routerLink]="['/cadastro-lojas/', loja.id]">
+          <i class="material-icons">editar</i>
+        </a>
+      </td>
+      <td>
+        <a (click)="delete(loja)" [routerLink]="['/']">
+          <i class="material-icons">remover</i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <button class="btn btn-primary"
+    routerLink="/cadastro-lojas/novo">
+    <h5><i class="material-icons">Adicionar nova loja</i></h5>
+  </button>
+</div>
+</div>
+<br/><br/>
