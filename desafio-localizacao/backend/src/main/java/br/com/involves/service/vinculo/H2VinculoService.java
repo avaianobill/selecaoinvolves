@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import br.com.involves.exception.EntityNotFoundException;
@@ -19,6 +19,7 @@ import br.com.involves.util.FuncionarioComPrioridadeEscolhaComparable;
 import br.com.involves.util.HaversineFuncion;
 import br.com.involves.util.Mensagens;
 
+@Order(value=Ordered.LOWEST_PRECEDENCE)
 @Service
 public class H2VinculoService implements VinculoService {
 
@@ -77,7 +78,9 @@ public class H2VinculoService implements VinculoService {
 	}
 
 	private void vincular(List<Funcionario> todosFuncionarios, List<Loja> copyOf) throws EntityNotFoundException {
-		while(!copyOf.isEmpty()) {
+		int tamanho = copyOf.size();
+		int contadoAbort = 0;
+		while(!copyOf.isEmpty() && contadoAbort < 3) {
 			List<Loja> processadas = new ArrayList<>();
 			for(Funcionario funcionario : todosFuncionarios) {
 				for(Loja loja: copyOf) {
@@ -90,6 +93,12 @@ public class H2VinculoService implements VinculoService {
 				}
 			}
 			copyOf.removeAll(processadas);
+			if(copyOf.size() == tamanho) {
+				contadoAbort++;
+			}else {
+				tamanho = copyOf.size();
+			}
+			
 		}
 	}
 

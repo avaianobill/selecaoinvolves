@@ -10,7 +10,7 @@ import br.com.involves.service.vinculo.VinculoService;
 
 @RestController
 public class VinculoController {
-
+		
 	private VinculoService service;
 	
 	public VinculoController(@Autowired VinculoService service) {

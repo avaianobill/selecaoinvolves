@@ -8,6 +8,8 @@ import javax.annotation.PostConstruct;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import br.com.involves.exception.EntityNotFoundException;
@@ -16,6 +18,7 @@ import br.com.involves.repository.FuncionarioRepository;
 import br.com.involves.util.CVSLoader;
 import br.com.involves.util.Mensagens;
 
+@Order(value=Ordered.HIGHEST_PRECEDENCE)
 @Service
 public class H2FuncionarioService implements FuncionarioService {
 
