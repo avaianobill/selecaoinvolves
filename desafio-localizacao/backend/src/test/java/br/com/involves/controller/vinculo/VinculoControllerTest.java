@@ -31,15 +31,9 @@ public class VinculoControllerTest {
 	TestRestTemplate restTemplate;
 	
 	@Test
-	public void testGetAll() {
-		Response post = RestAssured.given().port(port).body("{\"username\" : \"driver04\", \"password\" : \"driver04pw\"}").accept(ContentType.JSON).contentType(ContentType.JSON).post("/token/generate");
-        
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", post.getBody().asString());
+	public void testRedefinirVinculos() {
 
-        HttpEntity<String> entity = new HttpEntity<String>(headers);
-        
-        ResponseEntity<List> response = restTemplate.exchange("/vinculos", HttpMethod.GET, entity, List.class);
+       restTemplate.exchange("/vinculos?action=redefinir", HttpMethod.GET, null, List.class);
 
 	}
 

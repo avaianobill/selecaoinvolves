@@ -9,8 +9,12 @@ Os arquivos fornecidos em extensão .cvs são carregados na inicialização do s
 # Organização interna do projeto
 
 Foram criadas duas abstrações conforme os arquivos do CVS de domínio (Funcionario e Loja).
-Dessa forma, criados dois conjuntos de controladores, serviços e repositórios, além de um controlador e serviço de vinculação entre funcionários e lojas.
-Uso de DTOs para transferência de dados da camada de controle para os serviços.
+
+Dessa forma, criados dois conjuntos de controladores, serviços e repositórios.
+
+Criado também controlador e serviço de vinculação entre funcionários e lojas.
+
+Além do uso de DTOs para transferência de dados da camada de controladores para os serviços.
 
 
 
