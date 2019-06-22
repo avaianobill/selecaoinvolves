@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
@@ -30,29 +31,12 @@ public class H2LojaService implements LojaService {
 	private Logger logger = Logger.getLogger(H2FuncionarioService.class);
 
 	private Mensagens mensagens;
-
+	
 	@Autowired
 	public H2LojaService(final LojaRepository repository, final Mensagens mensagens) {
 		this.repository = repository;
 		this.mensagens = mensagens;
 		
-	}
-
-	@PostConstruct 
-	public void init() {
-
-		logger.info(mensagens.get("info.service.loja.h2.inicializando"));
-		
-		List<Loja> lojas = new ArrayList<>();
-		lojas.addAll(CVSLoader.loadObjectList(Loja.class, "lojas.cvs")); 
-
-		StringBuilder sb = new StringBuilder(mensagens.get("info.service.loja.h2.resultado")).append("\n");
-		
-		for(Loja loja: lojas) {
-			Loja lojaCriada = create(loja);
-			sb.append("	 ").append(lojaCriada).append("\n");
-		}
-		logger.info(sb.toString());
 	}
 
 

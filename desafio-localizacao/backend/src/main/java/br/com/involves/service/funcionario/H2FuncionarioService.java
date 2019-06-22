@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
@@ -32,23 +33,6 @@ public class H2FuncionarioService implements FuncionarioService {
 	public H2FuncionarioService(final FuncionarioRepository repository, final Mensagens mensagens) {
 		this.repository = repository;
 		this.mensagens = mensagens;
-	}
-	
-	@PostConstruct 
-	public void init() {
-		
-		logger.info(mensagens.get("info.service.funcionario.h2.inicializando"));
-		
-		List<Funcionario> funcionarios = new ArrayList<>();
-		funcionarios.addAll(CVSLoader.loadObjectList(Funcionario.class, "funcionarios.cvs"));
-		
-		StringBuilder sb = new StringBuilder(mensagens.get("info.service.funcionario.h2.resultado")).append("\n");
-		for(Funcionario funcionario: funcionarios) {
-			Funcionario funcionarioCriado = create(funcionario);
-			sb.append("	 ").append(funcionarioCriado).append("\n");
-		}
-		logger.info(sb.toString());
-		
 	}
 
 	

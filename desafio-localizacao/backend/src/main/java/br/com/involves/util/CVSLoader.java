@@ -1,6 +1,7 @@
 package br.com.involves.util;
 
 import java.io.File;
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class CVSLoader {
 	    try {
 	        CsvSchema bootstrapSchema = CsvSchema.emptySchema().withHeader();
 	        CsvMapper mapper = new CsvMapper();
-	        File file = new ClassPathResource(fileName).getFile();
+	        File file = new File(fileName);
 	        MappingIterator<T> readValues = mapper.reader(type).with(bootstrapSchema).readValues(file);
 	        return readValues.readAll();
 	    } catch (Exception e) {
