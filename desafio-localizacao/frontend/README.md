@@ -15,5 +15,5 @@ Para gerar o build do projeto execute o comando `ng build`. O artefatos gerados 
 ### Docker
 
 Neste projeto, também está disponível um arquivo Dockerfile para criação de uma imagem para execução.
-A imagem utiliza como implementação alpine linux e servidor nginx.
+A imagem utiliza como como base: alpine linux e servidor nginx.
 
